@@ -16,13 +16,21 @@ public class RTWTestCaseTest {
         String firstTestMethod = "first_test_method";
         rtwTestCase.registerTestMethod(firstTestMethod, () -> null);
         assertEquals(1,rtwTestCase.size());
+    }
+
+    @Test
+    public void should_has_test_method_when_register_method_to_test_case(){
+        RTWTestCase rtwTestCase = new RTWTestCase();
+        String firstTestMethod = "first_test_method";
+        rtwTestCase.registerTestMethod(firstTestMethod, () -> null);
+
         assertTrue(rtwTestCase.hasTestMethod(firstTestMethod));
+
         String secondTestMethod = "second_test_method";
         assertFalse(rtwTestCase.hasTestMethod(secondTestMethod));
-        assertFalse(rtwTestCase.hasTestMethod("third_test_method"));
+
         rtwTestCase.registerTestMethod(secondTestMethod, () -> null);
         assertTrue(rtwTestCase.hasTestMethod(secondTestMethod));
-
     }
     
 }
