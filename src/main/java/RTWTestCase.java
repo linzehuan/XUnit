@@ -19,7 +19,7 @@ public class RTWTestCase {
         return testMethods.size();
     }
 
-    public void registerTestMethod(String methodName, Supplier<Void> method) {
+    public void registerTestMethod(String methodName, Runnable method) {
         this.testMethods.add(TestMethod.of(methodName, method));
     }
 

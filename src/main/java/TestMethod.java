@@ -6,14 +6,14 @@ import java.util.function.Supplier;
 public class TestMethod {
     
     private String methodName;
-    private Supplier<Void> method;
+    private Runnable method;
 
-    public TestMethod(String methodName, Supplier<Void> method) {
+    public TestMethod(String methodName, Runnable method) {
         this.methodName = methodName;
         this.method = method;
     }
 
-    public static TestMethod of(String methodName, Supplier<Void> method) {
+    public static TestMethod of(String methodName, Runnable method) {
         return new TestMethod(methodName,method);
     }
 
