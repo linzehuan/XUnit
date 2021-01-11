@@ -1,5 +1,6 @@
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.Set;
 import java.util.function.Supplier;
 
@@ -19,14 +20,12 @@ public class RTWTestCase {
     }
 
     public void registerTestMethod(String methodName, Supplier<Void> method) {
-
         this.testMethods.add(TestMethod.of(methodName, method));
     }
 
-    public boolean getTestMethod(String methodName) {
-        if (methodName.equals("first_test_method")) {
-            return true;
-        }
-        return false;
+    public boolean hasTestMethod(String methodName) {
+        Optional<TestMethod> methodOptional = testMethods.stream().filter(testMethod -> testMethod.getMethodName().equals(methodName)).findFirst();
+        return methodOptional.isPresent();
     }
+
 }

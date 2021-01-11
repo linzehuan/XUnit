@@ -4,6 +4,7 @@ import java.util.function.Supplier;
  * @author Lin Zehuan
  */
 public class TestMethod {
+    
     private String methodName;
     private Supplier<Void> method;
 
@@ -14,5 +15,9 @@ public class TestMethod {
 
     public static TestMethod of(String methodName, Supplier<Void> method) {
         return new TestMethod(methodName,method);
+    }
+
+    public String getMethodName() {
+        return methodName;
     }
 }
