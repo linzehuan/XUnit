@@ -10,9 +10,7 @@ public class RTWTestCase {
 
     private List<TestMethod> testMethods = new ArrayList<>();
 
-    public RTWTestCase() {
- 
-    }
+
     public int getTestMethodsCount() {
         return testMethods.size();
     }

@@ -19,11 +19,9 @@ public class RunAllTestCase extends RTWTestCase {
     public static final String SHOULD_TEST_SUCCESS_TOO_METHOD_NAME = "should_test_success_too";
 
     public RunAllTestCase() {
-
         this.registerTestMethod(SHOULD_TEST_SUCCESS_METHOD_NAME, this::should_test_success);
         this.registerTestMethod(SHOULD_TEST_FAILED_METHOD_NAME, this::should_test_failed);
         this.registerTestMethod(SHOULD_TEST_SUCCESS_TOO_METHOD_NAME, this::should_test_success);
-
     }
 
     public void should_test_success() {
@@ -36,9 +34,7 @@ public class RunAllTestCase extends RTWTestCase {
 
     public void should_test_success_too() {
         assertThat(2, is(2));
-
     }
-
 
     public List<TestMethod> expectedTestMethods() {
         List<TestMethod> expectedTestMethods = new ArrayList<>();
