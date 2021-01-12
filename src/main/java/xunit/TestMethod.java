@@ -8,7 +8,6 @@ import java.util.Objects;
 public class TestMethod {
     private String name;
     private Runnable method;
-    private boolean resultTmp = false;
     private TestResultEnum result = TestResultEnum.EMPTY;
     private String failedMessage = "";
 
@@ -22,13 +21,6 @@ public class TestMethod {
         return new TestMethod(name, method);
     }
 
-    public String getName() {
-        return this.name;
-    }
-
-
-
-
     public void run() {
         try {
             method.run();
@@ -39,16 +31,17 @@ public class TestMethod {
         }
     }
 
+    public String getName() {
+        return this.name;
+    }
 
     public TestResultEnum getResult() {
         return this.result;
     }
 
-
     public String getFailedMessage() {
         return this.failedMessage;
     }
-
 
     @Override
     public boolean equals(Object o) {
