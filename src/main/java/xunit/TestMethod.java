@@ -8,6 +8,7 @@ import java.util.Objects;
 public class TestMethod {
     private String name;
     private Runnable method;
+    private boolean result = false;
 
 
     public TestMethod(String name, Runnable method) {
@@ -42,5 +43,10 @@ public class TestMethod {
 
     public void run() {
         method.run();
+        this.result = true;
+    }
+
+    public boolean getResult() {
+        return this.result;
     }
 }

@@ -31,4 +31,12 @@ public class TestMethodTest {
     public void should_run_method() {
         mockTestMethodRun.run();
     }
+
+    @Test
+    public void should_run_test_success(){
+        mockTestMethodRun = mock(MockTestMethodRun.class);
+        TestMethod testMethod = TestMethod.of("test",this::should_run_method);
+        testMethod.run();
+        assertThat(testMethod.getResult(), is(true));
+    }
 }
