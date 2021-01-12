@@ -12,11 +12,11 @@ public class RTWTestCase {
 
     public RTWTestCase() {
         if (this instanceof SingleMethodTestCase) {
-            this.testMethods.add(new TestMethod());
+            this.testMethods.add(new TestMethod("",()->{}));
         }
         if (this instanceof DoubleMethodTestCase) {
-            this.testMethods.add(new TestMethod());
-            this.testMethods.add(new TestMethod());
+            this.testMethods.add(new TestMethod("",()->{}));
+            this.testMethods.add(new TestMethod("",()->{}));
         }
     }
     public int getTestMethodsCount() {
