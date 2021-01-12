@@ -24,4 +24,10 @@ public class RTWTestCase {
     public List<TestMethod> getTestMethods() {
         return this.testMethods;
     }
+
+    protected void run() {
+        for (TestMethod testMethod : this.testMethods) {
+            testMethod.run();
+        }
+    }
 }
