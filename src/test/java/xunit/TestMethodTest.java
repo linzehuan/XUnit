@@ -19,13 +19,6 @@ public class TestMethodTest {
         mockTestMethodRun = mock(MockTestMethodRun.class);
     }
 
-    @Test
-    public void should_create_test_method() {
-        String methodName = "testMethod";
-        TestMethod testMethod = TestMethod.of(methodName, () -> {
-        });
-        assertThat(testMethod.getName(), is(methodName));
-    }
 
     @Test
     public void should_run_test_method() {
