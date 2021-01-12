@@ -3,9 +3,7 @@ package xunit;
 /**
  * @author Lin Zehuan
  */
-public class SingleMethodTestCase {
+public class SingleMethodTestCase extends RTWTestCase{
 
-    public int getTestMethodsCount() {
-        return 1;
-    }
+   
 }
