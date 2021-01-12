@@ -32,14 +32,13 @@ public class RTWTestCaseTest {
         assertThat(expectedTetMethodList, is(runAllTestCase.expectedTestMethods()));
         runAllTestCase.run();
         assertThat(expectedTetMethodList.get(0).getName(), is(RunAllTestCase.SHOULD_TEST_SUCCESS_METHOD_NAME));
-        assertThat(expectedTetMethodList.get(0).getResult(), is(TestResultEnum.SUCCESS));
+        assertThat(expectedTetMethodList.get(0).getTestResult(), is(TestResult.ofSuccess()));
 
         assertThat(expectedTetMethodList.get(1).getName(), is(RunAllTestCase.SHOULD_TEST_FAILED_METHOD_NAME));
-        assertThat(expectedTetMethodList.get(1).getTestResult().result, is(TestResultEnum.FAILED));
-        assertThat(expectedTetMethodList.get(1).getTestResult().failedMessage, is("\nExpected: is <2>\n     but: was <1>"));
+        assertThat(expectedTetMethodList.get(1).getTestResult(), is(TestResult.ofFailed("\nExpected: is <2>\n     but: was <1>")));
 
         assertThat(expectedTetMethodList.get(2).getName(), is(RunAllTestCase.SHOULD_TEST_SUCCESS_TOO_METHOD_NAME));
-        assertThat(expectedTetMethodList.get(2).getResult(), is(TestResultEnum.SUCCESS));
+        assertThat(expectedTetMethodList.get(2).getTestResult(), is(TestResult.ofSuccess()));
 
 
     }

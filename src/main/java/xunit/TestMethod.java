@@ -35,15 +35,8 @@ public class TestMethod {
         return this.name;
     }
 
-    public TestResultEnum getResult() {
-        return testResult.result;
-    }
-
     public TestResult getTestResult() {
         return testResult;
-    }
-    public String getFailedMessage() {
-        return testResult.failedMessage;
     }
 
     @Override
