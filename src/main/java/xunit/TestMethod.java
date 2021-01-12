@@ -25,8 +25,12 @@ public class TestMethod {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof TestMethod)) return false;
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof TestMethod)) {
+            return false;
+        }
         TestMethod that = (TestMethod) o;
         return Objects.equals(name, that.name);
     }
@@ -34,5 +38,9 @@ public class TestMethod {
     @Override
     public int hashCode() {
         return Objects.hash(name);
+    }
+
+    public void run() {
+        method.run();
     }
 }
