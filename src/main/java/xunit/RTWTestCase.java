@@ -20,4 +20,8 @@ public class RTWTestCase {
     protected void registerTestMethod(String methodName, Runnable method) {
         this.testMethods.add(TestMethod.of(methodName, method));
     }
+
+    public List<TestMethod> getTestMethods() {
+        return this.testMethods;
+    }
 }

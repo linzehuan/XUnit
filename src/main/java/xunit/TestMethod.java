@@ -1,5 +1,7 @@
 package xunit;
 
+import java.util.Objects;
+
 /**
  * @author Lin Zehuan
  */
@@ -19,5 +21,18 @@ public class TestMethod {
 
     public String getName() {
         return this.name;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof TestMethod)) return false;
+        TestMethod that = (TestMethod) o;
+        return Objects.equals(name, that.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name);
     }
 }
