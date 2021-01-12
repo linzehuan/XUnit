@@ -3,9 +3,8 @@ package xunit;
 /**
  * @author Lin Zehuan
  */
-public class SingleMethodTestCase {
-
+public class DoubleMethodTestCase {
     public int getTestMethodsCount() {
-        return 1;
+        return 2;
     }
 }
