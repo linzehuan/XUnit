@@ -8,9 +8,9 @@ import java.util.Objects;
 public class TestMethod {
     private String name;
     private Runnable method;
-    private TestResultEnum result = TestResultEnum.EMPTY;
-    private String failedMessage = "";
 
+
+    private TestResult testResult ;
 
     public TestMethod(String name, Runnable method) {
         this.name = name;
@@ -21,14 +21,14 @@ public class TestMethod {
         return new TestMethod(name, method);
     }
 
-    public void run() {
+    public TestResult run() {
         try {
             method.run();
-            this.result = TestResultEnum.SUCCESS;
+            testResult = TestResult.ofSuccess();
         } catch (AssertionError e) {
-            this.result = TestResultEnum.FAILED;
-            this.failedMessage = e.getMessage();
+            testResult = TestResult.ofFailed(e.getMessage());
         }
+        return testResult;
     }
 
     public String getName() {
@@ -36,11 +36,14 @@ public class TestMethod {
     }
 
     public TestResultEnum getResult() {
-        return this.result;
+        return testResult.result;
     }
 
+    public TestResult getTestResult() {
+        return testResult;
+    }
     public String getFailedMessage() {
-        return this.failedMessage;
+        return testResult.failedMessage;
     }
 
     @Override

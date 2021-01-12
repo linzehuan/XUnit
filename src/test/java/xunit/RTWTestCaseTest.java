@@ -1,6 +1,5 @@
 package xunit;
 
-import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Test;
 import xunit.fixture.RegisterMethodTestCase;
 import xunit.fixture.RunAllTestCase;
@@ -36,8 +35,8 @@ public class RTWTestCaseTest {
         assertThat(expectedTetMethodList.get(0).getResult(), is(TestResultEnum.SUCCESS));
 
         assertThat(expectedTetMethodList.get(1).getName(), is(RunAllTestCase.SHOULD_TEST_FAILED_METHOD_NAME));
-        assertThat(expectedTetMethodList.get(1).getResult(), is(TestResultEnum.FAILED));
-        assertThat(expectedTetMethodList.get(1).getFailedMessage(), is("\nExpected: is <2>\n     but: was <1>"));
+        assertThat(expectedTetMethodList.get(1).getTestResult().result, is(TestResultEnum.FAILED));
+        assertThat(expectedTetMethodList.get(1).getTestResult().failedMessage, is("\nExpected: is <2>\n     but: was <1>"));
 
         assertThat(expectedTetMethodList.get(2).getName(), is(RunAllTestCase.SHOULD_TEST_SUCCESS_TOO_METHOD_NAME));
         assertThat(expectedTetMethodList.get(2).getResult(), is(TestResultEnum.SUCCESS));
