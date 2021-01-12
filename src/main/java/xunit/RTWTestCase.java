@@ -14,11 +14,12 @@ public class RTWTestCase {
         if (this instanceof SingleMethodTestCase) {
             this.testMethods.add(new TestMethod());
         }
+        if (this instanceof DoubleMethodTestCase) {
+            this.testMethods.add(new TestMethod());
+            this.testMethods.add(new TestMethod());
+        }
     }
     public int getTestMethodsCount() {
-        if (this instanceof SingleMethodTestCase) {
-            return testMethods.size();
-        }
-        return 2;
+        return testMethods.size();
     }
 }
