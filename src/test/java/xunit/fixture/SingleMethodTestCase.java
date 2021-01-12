@@ -1,4 +1,6 @@
-package xunit;
+package xunit.fixture;
+
+import xunit.RTWTestCase;
 
 /**
  * @author Lin Zehuan

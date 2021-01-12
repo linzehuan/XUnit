@@ -1,6 +1,7 @@
 package xunit;
 
 import org.junit.jupiter.api.Test;
+import xunit.fixture.SingleMethodTestCase;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;

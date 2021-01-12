@@ -1,9 +1,11 @@
-package xunit;
+package xunit.fixture;
+
+import xunit.RTWTestCase;
 
 /**
  * @author Lin Zehuan
  */
-public class DoubleMethodTestCase extends RTWTestCase{
+public class DoubleMethodTestCase extends RTWTestCase {
 
     public DoubleMethodTestCase() {
         this.registerTestMethod("first_test_method",this::first_test_method);
