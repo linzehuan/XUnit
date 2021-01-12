@@ -37,6 +37,6 @@ public class TestMethodTest {
         mockTestMethodRun = mock(MockTestMethodRun.class);
         TestMethod testMethod = TestMethod.of("test",this::should_run_method);
         testMethod.run();
-        assertThat(testMethod.getResult(), is(true));
+        assertThat(testMethod.getResult(), is(TestResultEnum.SUCCESS));
     }
 }
