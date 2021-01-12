@@ -1,5 +1,6 @@
 package xunit;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -13,6 +14,10 @@ public class TestMethodTest {
 
     private MockTestMethodRun mockTestMethodRun;
 
+    @BeforeEach
+    public void init(){
+        mockTestMethodRun = mock(MockTestMethodRun.class);
+    }
     @Test
     public void should_create_test_method(){
         String methodName = "testMethod";
@@ -22,21 +27,32 @@ public class TestMethodTest {
 
    @Test
    public void should_run_test_method(){
-       mockTestMethodRun = mock(MockTestMethodRun.class);
-       TestMethod testMethod = TestMethod.of("test",this::should_run_method);
+       TestMethod testMethod = TestMethod.of("test",this::should_test_success);
        testMethod.run();
        verify(mockTestMethodRun,times(1)).run();
    }
 
-    public void should_run_method() {
+    public void should_test_success() {
         mockTestMethodRun.run();
     }
 
     @Test
     public void should_run_test_success(){
-        mockTestMethodRun = mock(MockTestMethodRun.class);
-        TestMethod testMethod = TestMethod.of("test",this::should_run_method);
+        TestMethod testMethod = TestMethod.of("test_success",this::should_test_success);
         testMethod.run();
         assertThat(testMethod.getResult(), is(TestResultEnum.SUCCESS));
     }
+
+    public void should_test_fail() {
+        assertThat("success", is("failed"));
+    }
+
+    @Test
+    public void should_run_test_failed() {
+        TestMethod testMethod = TestMethod.of("test_failed",this::should_test_fail);
+        testMethod.run();
+        assertThat(testMethod.getResult(),is(TestResultEnum.FAILED));
+        assertThat(testMethod.getFailedMessage(),is("\nExpected: is \"failed\"\n     but: was \"success\""));
+    }
 }
+
